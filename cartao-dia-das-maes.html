@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Dia das Mães!</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      color: #333;
+      text-align: center;
+      padding: 50px;
+      /* Remover overflow: hidden para permitir rolar a página */
+    }
+    .card {
+      background-color: #ffe3e3;
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      color: #d6336c;
+    }
+    .foto {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: none;
+      margin-bottom: 30px; /* Espaço extra para garantir que a imagem não fique cortada */
+    }
+    .heart {
+      font-size: 2em;
+      color: #ff6b6b;
+      margin-top: 20px;
+      display: none;
+    }
+    .assinatura {
+      margin-top: 30px;
+      font-style: italic;
+      color: #6a4c93;
+    }
+    button {
+      background-color: #d6336c;
+      color: white;
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #b02552;
+    }
+    .flower {
+      position: absolute;
+      font-size: 24px;
+      animation: float 10s linear infinite;
+      z-index: 0;
+      opacity: 0.8;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const emojis = ['🌸', '🌺', '🌼', '🌷'];
+    for (let i = 0; i < 30; i++) {
+      const flower = document.createElement('div');
+      flower.className = 'flower';
+      flower.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (8 + Math.random() * 5) + 's';
+      flower.style.fontSize = (20 + Math.random() * 20) + 'px';
+      document.body.appendChild(flower);
+    }
+  </script>
+
+  <div class="card">
+    <h1>Feliz Dia das Mães! 💐</h1>
+    <p>
+      Querida Mamãe,<br><br>
+      Neste dia tão especial, quero te lembrar do quanto você é importante para mim. 
+      Obrigado por todo amor, carinho e dedicação. Desculpa por não ser um bom filho, mas prometo te dar orgulho pra sempre.
+    </p>
+
+    <button onclick="mostrarFoto()">Clique aqui</button>
+
+    <img src="foto.png" class="foto" id="foto">
+    <div class="heart" id="heart">❤️❤️❤️</div>
+
+    <p class="assinatura">Com todo meu amor,<br><strong>[Lucas Michelmann]</strong></p>
+
+    <audio id="musica" src="musica.mp3"></audio>
+  </div>
+
+  <script>
+    function mostrarFoto() {
+      document.getElementById("foto").style.display = "block";
+      document.getElementById("heart").style.display = "block";
+      document.getElementById("musica").play();
+    }
+  </script>
+</body>
+</html>
